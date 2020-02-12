@@ -9,7 +9,6 @@ class BooksController < ApplicationController
   end
 
   def new
-  	
   end
 
   def edit
@@ -19,8 +18,7 @@ class BooksController < ApplicationController
   def update
   	book = Book.find(params[:id])
   	if book.update(book_params)
-      flash[:notice2] = "Book was successfully updated."
-    	redirect_to book_path(book.id)
+    	redirect_to book_path(book.id), notice: "successfully"
     else
     @book = book
     render action: :edit
@@ -30,7 +28,7 @@ class BooksController < ApplicationController
   def create
   	book = Book.new(book_params)
     if book.save
-      flash[:notice] = "Book was successfully created."
+      flash[:notice] = "successfully"
       redirect_to book_path(book.id)
     else
       @book = book
