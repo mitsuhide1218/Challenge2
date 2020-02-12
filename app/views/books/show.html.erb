@@ -1,0 +1,26 @@
+<h1>Show</h1>
+<% if flash[:notice] %>
+  <p><%= flash[:notice] %></p>
+<% end %>
+<% if flash[:notice2] %>
+  <p><%= flash[:notice2] %></p>
+<% end %>
+
+
+<table  class="table table-striped">
+	<thead>
+		<tr>
+			<th>Title:</th>
+			<th>Body:</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+				<td><%= @book.title %></td>
+				<td><%= @book.body %></td>
+		</tr>
+	</tbody>
+</table>
+
+<%= link_to "edit", edit_book_path %> /
+<%= link_to "back", books_path %>
